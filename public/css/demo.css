@@ -2,13 +2,9 @@
     --main-bg-color: #efefef;
     --icons-color: #767676;
 }
-html {
-    height: 100%;
-}
 body {
     display: flex;
     align-items: center;
-    height: 100%;
     
 }
 .nav-bar {
@@ -58,9 +54,10 @@ body {
     background-color: var(--main-bg-color);
     align-items: center;
     width: 25%;
-    height: 90%;
+    height: 40em;
     margin: 0 0.8em 0 0.8em;
     border-radius: .5em;
+    overflow-y: scroll;
 }
 .bug {
     border-radius: .5em;

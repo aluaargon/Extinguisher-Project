@@ -5,22 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/demo.css">
     <!-- El siguiente script lo uso para los iconos en la web -->
     <script src="https://kit.fontawesome.com/f5b00fae21.js" crossorigin="anonymous"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
 </head>
 <body>
     <div class="nav-bar">
-        <i class="fas fa-filter"></i>
+
+        <i class="fas fa-user fa-3x"></i>
+        <i class="fas fa-plus fa-3x"></i>
+        <i class="fas fa-filter fa-3x"></i>
+        <i class="fas fa-info fa-3x"></i>
+        <i class="fas fa-power-off fa-3x"></i>
     </div>
-    <div class="container-grid">
+    <div class="container">
         <div class="headers">
             <div class="head">Sin asignar</div>
             <div class="head">En proceso</div>
             <div class="head">En pruebas</div>
             <div class="head">Acabados</div>
         </div>
-        <div class="bug-manger">
-            <div class="bug-container"></div>
+        <div class="bug-manager">
+            <div class="bug-container">
+                <div class="bug">
+                    <h3>This is a bug test. With small description</h4>
+                        <div class="bug-footer">
+                            <p class="tag">This is a tag</p>
+                            <div>
+                                <i class="fas fa-bug fa-2x"></i>
+                                <i class="fas fa-user-slash fa-2x"></i>
+                            </div>
+                        </div>
+                </div>
+                <div class="bug">
+                    <h3>This is a bug test. With small description</h4>
+                        <div class="bug-footer">
+                            <p class="tag">This is a tag</p>
+                            <div>
+                                <i class="fas fa-fire-extinguisher fa-2x"></i>
+                                <i class="fas fa-user-slash fa-2x"></i>
+                            </div>
+                        </div>
+                </div>
+                <div class="bug">
+                    <h3>This is a bug test. With small description</h4>
+                        <div class="bug-footer">
+                            <p class="tag">This is a tag</p>
+                            <div>
+                                <i class="fas fa-database fa-2x"></i>
+                                <i class="fas fa-user-slash fa-2x"></i>
+                            </div>
+                        </div>
+                </div>
+            </div>
             <div class="bug-container"></div>
             <div class="bug-container"></div>
             <div class="bug-container"></div>

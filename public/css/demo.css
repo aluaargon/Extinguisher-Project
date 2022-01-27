@@ -20,6 +20,9 @@ body {
     color: var(--icons-color);
     margin: 2em;
 }
+i {
+    cursor: pointer;
+}
 .container {
     width:90%;
     height: 100%;

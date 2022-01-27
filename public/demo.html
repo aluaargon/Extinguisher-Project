@@ -11,11 +11,12 @@
     <script src="https://kit.fontawesome.com/f5b00fae21.js" crossorigin="anonymous"></script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/code.js"></script>
 </head>
 <body>
     <div class="nav-bar">
 
-        <i class="fas fa-user fa-3x"></i>
+        <i class="fas fa-user fa-3x" id="user"></i>
         <i class="fas fa-plus fa-3x"></i>
         <i class="fas fa-filter fa-3x"></i>
         <i class="fas fa-info fa-3x"></i>
@@ -30,8 +31,8 @@
         </div>
         <div class="bug-manager">
             <div class="bug-container">
-                <div class="bug">
-                    <h3>This is a bug test. With small description</h4>
+                <div class="bug" id="draggable">
+                    <h3>Desc 1</h4>
                         <div class="bug-footer">
                             <p class="tag">This is a tag</p>
                             <div>
@@ -41,7 +42,7 @@
                         </div>
                 </div>
                 <div class="bug">
-                    <h3>This is a bug test. With small description</h4>
+                    <h3 id="description">This is a bug test. With small description</h4>
                         <div class="bug-footer">
                             <p class="tag">This is a tag</p>
                             <div>
@@ -73,7 +74,7 @@
 
             </div>
             
-            <div class="bug-container"></div>
+            <div class="bug-container" id="droppable"></div>
             <div class="bug-container"></div>
             <div class="bug-container"></div>
         </div>

@@ -8,11 +8,9 @@ $(document).ready(function () {
    
    $("#user").on("click", function() {
        $.ajax({
-           type: "POST",
-           url : "/bug",
-           data: bugTest
+           type: "GET",
+           url : "/bug/" + JSON.stringify(bugTest)
        }).done((response) => $("#droppable").append(response))
        .fail((request) => alert("something went wrong " + request.status));
    });
-
 });

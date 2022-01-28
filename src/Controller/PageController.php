@@ -9,20 +9,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class PageController extends AbstractController
 {
     /**
-     * @Route("/page", name="page")
+     * @Route("/", name="page")
      */
     public function index(): Response
     {
-        return $this->render('page/index.html.twig', [
-            'controller_name' => 'PageController',
-        ]);
+        return $this->render('page/demo.html');
+    }
+     /**
+     * @Route("/demo", name="demo")
+     */
+    public function demo(): Response
+    {
+        return $this->render('page/demo.html');
     }
     /**
-     * @Route("/bug", name="bug")
+     * @Route("/bug/{id}/{estap}", name="bug")
      */
-    public function bug()
+    public function bug($id, $estado)
     {
-        $description = $_POST["description"];
+
         return $this->render('page/test.html.twig', ['description' => $description]);
     }
 }

@@ -23,9 +23,17 @@ class PageController extends AbstractController
         return $this->render('page/demo.html');
     }
     /**
-     * @Route("/bug/{id}/{estap}", name="bug")
+     * @Route("/user-info", name="bug")
      */
-    public function bug($id, $estado)
+    public function userInfo($description)
+    {
+
+        return $this->render('page/user-info.html');
+    }
+    /**
+     * @Route("/bug/{description}", name="bug")
+     */
+    public function bug($description)
     {
 
         return $this->render('page/test.html.twig', ['description' => $description]);

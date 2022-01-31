@@ -1,9 +1,19 @@
 $(document).ready(function () {  
     $("#user").on("click", () => {
-        sacardatos("/user-info")
+        $(".user-container").css({visibility : "visible"});
+        $("#user").addClass("active");
     }); 
-    $("#exit").on("click", function name(params) {
-        $(".user-container").remove(); 
+    $("#exit-user").on("click", function() {
+        $(".user-container").css({visibility : "hidden"}); 
+        $("#user").removeClass("active");
+    });
+    $("#info").on("click", () => {
+        $(".info-container").css({visibility : "visible"});
+        $("#info").addClass("active");
+    }); 
+    $("#exit-info").on("click", function() {
+        $(".info-container").css({visibility : "hidden"}); 
+        $("#info").removeClass("active");
     });
 });
 function sacardatos(datos) {

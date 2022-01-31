@@ -1,16 +1,22 @@
 $(document).ready(function () {  
     $("#user").on("mouseover", function() {
-       $("#user").css({color : "black"})
+       $("#user").addClass("active");
     }); 
     $("#user").on("mouseout", function() {
-        $("#user").css({color : "#767676"})
+        $("#user").removeClass("active");
     });
 
     $("#add").on("mouseover", function() {
-        $("#add").css({color : "black"})
-        console.log("dev1");
+        $("#add").addClass("active");
     }); 
     $("#add").on("mouseout", function() {
-        $("#add").css({color : "#767676"})
+        $("#add").removeClass("active");
+    });
+
+    $("#info").on("mouseover", function() {
+        $("#info").addClass("active");
+    }); 
+    $("#info").on("mouseout", function() {
+        $("#info").removeClass("active");
     });
 });

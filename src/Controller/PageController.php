@@ -22,14 +22,7 @@ class PageController extends AbstractController
     {
         return $this->render('page/demo.html');
     }
-    /**
-     * @Route("/user-info", name="user-info")
-     */
-    public function userInfo()
-    {
 
-        return $this->render('page/user-info.html');
-    }
     /**
      * @Route("/bug/{description}", name="bug")
      */

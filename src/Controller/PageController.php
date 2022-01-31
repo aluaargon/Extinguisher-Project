@@ -23,9 +23,9 @@ class PageController extends AbstractController
         return $this->render('page/demo.html');
     }
     /**
-     * @Route("/user-info", name="bug")
+     * @Route("/user-info", name="user-info")
      */
-    public function userInfo($description)
+    public function userInfo()
     {
 
         return $this->render('page/user-info.html');

@@ -19,6 +19,7 @@ body {
     gap: 1em;
     color: var(--icons-color);
     margin: 2em;
+    z-index: 3;
 }
 i {
     cursor: pointer;
@@ -87,9 +88,13 @@ i {
     width: 50%;
 }
 .user-container{
+    background-color: var(--main-bg-color);
     z-index: 2;
-    width: 2em;
-    height: 2em;
-    position: absolute;
-    margin: 3em 0 0 3em;
+    width: 22em;
+    height: 35em;
+    left: 12em;
+    position: fixed;
+    border: 3px solid black;
+    border-radius: .5em;
 }
+

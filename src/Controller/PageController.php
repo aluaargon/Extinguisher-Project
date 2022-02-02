@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Priority;
 
 class PageController extends AbstractController
 {
@@ -24,12 +26,13 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/bug/{description}", name="bug")
+     * @Route("/insert/{description}/{priority}", name="bug")
      */
-    public function bug($description)
+    public function insert(ManagerRegistry $doctrine, $description, $priority)
     {
-
-        return $this->render('page/test.html.twig', ['description' => $description]);
+        $repositorio = $doctrine->getRepository(Priority::class);
+        $priority = $repositorio->find($priority);
+        return $this->render('page/test.html.twig', ["description" => $description, "priority" => $priority]);
     }
 }
 

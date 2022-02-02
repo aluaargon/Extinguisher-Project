@@ -12,11 +12,11 @@
     <script src="/js/jquery.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/efects.js"></script>
+    <script src="/js/form.js"></script>
     <script src="/js/code.js"></script>
 </head>
 <body>
     <div class="nav-bar">
-
         <i class="fas fa-user fa-3x" id="user"></i>
         <i class="fas fa-plus fa-3x" id="add"></i>
         <i class="fas fa-filter fa-3x"></i>
@@ -38,17 +38,17 @@
     </div>
 
     <div class="add-container">
-        <form>
+        <form action="#">
             <h2>Añadir un bug</h2>
             <label for="description">Descripcion:</label><br>
             <input type="text" id="description" name="description"><br>
             <label for="description">Prioridad:</label><br>
-            <select>
-                <option value=””>option1</option>
-                <option value=””>option2</option>
-                <option value=””>option3</option>
+            <select id="priorities">
+                <option value="1">Baja</option>
+                <option value="2">Media</option>
+                <option value="3">Alta</option>
             </select>
-            <button>Submit</button>
+            <button id="submit">Submit</button>
         </form>
         <br>
         <i class="fas fa-sign-out-alt fa-2x" id="exit-add"></i>
@@ -67,47 +67,8 @@
             <div class="head">Acabados</div>
         </div>
         <div class="bug-manager">
-            <div class="bug-container">
-                <div class="bug" id="draggable">
-                    <h3 id="description">Descripcion</h4>
-                        <div class="bug-footer">
-                            <p class="priority">This is a priority</p>
-                            <div>
-                                <i class="fas fa-bug fa-2x"></i>
-                                <i class="fas fa-user-slash fa-2x"></i>
-                            </div>
-                        </div>
-                </div>
-                <div class="bug">
-                    <h3>This is a bug test. With small description</h4>
-                        <div class="bug-footer">
-                            <p class="priority">This is a priority</p>
-                            <div>
-                                <i class="fas fa-fire-extinguisher fa-2x"></i>
-                                <i class="fas fa-user-slash fa-2x"></i>
-                            </div>
-                        </div>
-                </div>
-                <div class="bug">
-                    <h3>This is a bug test. With small description</h4>
-                        <div class="bug-footer">
-                            <p class="priority">This is a priority</p>
-                            <div>
-                                <i class="fas fa-database fa-2x"></i>
-                                <i class="fas fa-user-slash fa-2x"></i>
-                            </div>
-                        </div>
-                </div>
-                <div class="bug">
-                    <h3>This is a bug test. With small description</h4>
-                        <div class="bug-footer">
-                            <p class="priority">This is a priority</p>
-                            <div>
-                                <i class="fas fa-database fa-2x"></i>
-                                <i class="fas fa-user-slash fa-2x"></i>
-                            </div>
-                        </div>
-                </div>
+            <div class="bug-container" id="notAssigned">
+
 
             </div>
             

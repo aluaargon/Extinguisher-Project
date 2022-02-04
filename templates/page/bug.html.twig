@@ -1,0 +1,22 @@
+<div class="bug">
+    <h3>{{ bug.description }}</h4>
+        <div class="bug-footer">
+            <p class="priority">{{ bug.priority.level }}{{ bug.status.name }}</p>
+            <div>
+                {% if bug.status.id == 1 %}
+                    <i class="fas fa-database fa-2x"></i>
+                    <i class="fas fa-user-slash fa-2x"></i>
+                {% elseif  bug.status.id == 2 %}
+                    <i class="fas fa-user fa-2x"></i>
+                    <i class="fas fa-wrench fa-2x"></i>
+                    <i class="far fa-arrow-alt-circle-right fa-2x"></i>
+                {% elseif  bug.status.id == 3 %}
+                    <i class="fas fa-user fa-2x"></i>
+                    <i class="far fa-arrow-alt-circle-right fa-2x"></i>
+                {% else %}
+                    <i class="far fa-angry fa-2x"></i>
+                    <i class="far fa-angry fa-2x"></i>
+                {% endif %}
+            </div>
+        </div>
+</div>

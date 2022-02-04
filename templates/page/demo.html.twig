@@ -68,13 +68,44 @@
         </div>
         <div class="bug-manager">
             <div class="bug-container" id="notAssigned">
-
-
+            {% if bugsSinAsignar %}
+                {% for bug in bugsSinAsignar %}
+                    {{ include ('page/bug.html.twig', {'bug': bug}) }}
+                {% endfor %}
+            {% else %}
+                <p>No hay bugs sin asignar</p>
+            {% endif %}
             </div>
-            
-            <div class="bug-container" id="droppable"></div>
-            <div class="bug-container"></div>
-            <div class="bug-container"></div>
+
+            <div class="bug-container" id="droppable">
+            {% if bugsEnProceso %}
+                {% for bug in bugsEnProceso %}
+                    {{ include ('page/bug.html.twig', {'bug': bug}) }}
+                {% endfor %}
+            {% else %}
+                <p>No hay bugs en Proceso</p>
+            {% endif %}
+            </div>
+
+            <div class="bug-container">
+               {% if bugsEnPruebas %}
+                {% for bug in bugsEnPruebas %}
+                    {{ include ('page/bug.html.twig', {'bug': bug}) }}
+                {% endfor %}
+            {% else %}
+                <p>No hay bugs en Pruebas</p>
+            {% endif %} 
+            </div>
+
+            <div class="bug-container">
+               {% if bugsAcabados %}
+                {% for bug in bugsAcabados %}
+                    {{ include ('page/bug.html.twig', {'bug': bug}) }}
+                {% endfor %}
+            {% else %}
+                <p>No hay bugs Acabados</p>
+            {% endif %} 
+            </div>
         </div>
     </div>
 </body>

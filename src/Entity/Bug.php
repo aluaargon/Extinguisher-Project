@@ -6,6 +6,7 @@ use App\Repository\BugRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity(repositoryClass=BugRepository::class)
  */
 class Bug
@@ -22,28 +23,29 @@ class Bug
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
+    
+   /** 
+    * @ORM\Column(type="datetime", options={"default"="CURRENT_TIMESTAMP"})
+   */
     private $date;
-
+    
     /**
      * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="bugs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $status;
-
+    
     /**
      * @ORM\ManyToOne(targetEntity=Priority::class, inversedBy="bugs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $priority;
-
+    
     public function getId(): ?int
     {
         return $this->id;
     }
-
+    
     public function getDescription(): ?string
     {
         return $this->description;
@@ -52,43 +54,50 @@ class Bug
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
+        
         return $this;
     }
-
+    
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
-
-    public function setDate(\DateTimeInterface $date): self
+    
+    public function setDate(?\DateTimeInterface $date): self
     {
         $this->date = $date;
-
+        
         return $this;
     }
-
+    
     public function getStatus(): ?Status
     {
         return $this->status;
     }
-
+    
     public function setStatus(?Status $status): self
     {
         $this->status = $status;
-
+        
         return $this;
     }
-
+    
     public function getPriority(): ?Priority
     {
         return $this->priority;
     }
-
+    
     public function setPriority(?Priority $priority): self
     {
         $this->priority = $priority;
-
+        
         return $this;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function onPrePersistSetRegistrationDate()
+    {
+        $this->date = new \DateTime();
     }
 }

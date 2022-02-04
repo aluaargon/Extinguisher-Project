@@ -41,6 +41,32 @@ class PageController extends AbstractController
     }
 
     /**
+     * @Route("/move/{id}", name="id")
+     */
+    public function move(ManagerRegistry $doctrine, $id): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $repositorio = $doctrine->getRepository(Bug::class);
+        $bugMover = $repositorio->find($id);
+        if ($bugMover) {            
+            $rep = $doctrine->getRepository(Status::class);
+            $status = $rep->find(3);
+            $bugMover->setStatus($status);
+    
+            $entityManager->persist($bugMover);
+    
+            try {
+                $entityManager->flush();       
+                return new Response("objeto actualizado");
+            } catch (\Exception $e) {
+                return new Response($e->getMessage());
+            }
+        }
+
+    
+    }
+
+    /**
      * @Route("/insert/{description}/{priority}", name="bug")
      */
     public function insert(ManagerRegistry $doctrine, $description, $priority): Response

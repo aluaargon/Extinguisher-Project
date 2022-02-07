@@ -8,7 +8,10 @@ $(document).ready(function () {
          $.ajax({
              type: "GET", 
              url : "/insert/" + $("#description").val() + "/" + $("#priorities").val() 
-         }).done((response) => $("#notAssigned").append(response))
+         }).done((response) => {
+            $("#notAssigned").append(response);
+            window.location.reload(true);
+         })
          .fail((request) => alert("something went wrong " + request.status));
      });
 });

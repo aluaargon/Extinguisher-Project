@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Status
 {
+
+    public const EN_PRUEBAS = 2;
+    public const SIN_ASIGNAR = 1;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

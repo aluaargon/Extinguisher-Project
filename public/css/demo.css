@@ -69,7 +69,7 @@ i {
     background-color: white;
     padding: .5em;
     width: 90%;
-    height: 33.3%;   
+    height: 139px;   
     margin: 1em 0;
 }
 .bug-footer {
@@ -86,6 +86,12 @@ i {
     border-radius: .3em;
     padding: .2em;
     width: 50%;
+}
+i {
+    color: var(--icons-color);
+}
+fa-thumbs-up {
+    color: black;
 }
 .user-container{
     background-color: var(--main-bg-color);

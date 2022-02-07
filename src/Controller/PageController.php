@@ -9,7 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Priority;
 use App\Entity\Status;
-use DateTimeInterface;
 
 class PageController extends AbstractController
 {
@@ -21,13 +20,10 @@ class PageController extends AbstractController
         $repositorio = $doctrine->getRepository(Bug::class);
         $bugsSinAsignar = $repositorio->findBy(["status" => "1"]);
 
-        $repositorio = $doctrine->getRepository(Bug::class);
         $bugsEnProceso = $repositorio->findBy(["status" => "2"]);
 
-        $repositorio = $doctrine->getRepository(Bug::class);
         $bugsEnPruebas = $repositorio->findBy(["status" => "3"]);
 
-        $repositorio = $doctrine->getRepository(Bug::class);
         $bugsAcabados = $repositorio->findBy(["status" => "4"]);
 
         return $this->render('page/demo.html.twig', ["bugsSinAsignar" => $bugsSinAsignar, "bugsEnProceso" => $bugsEnProceso, "bugsEnPruebas" => $bugsEnPruebas, "bugsAcabados" => $bugsAcabados]);
@@ -41,16 +37,17 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/move/{id}", name="id")
+     * @Route("/move/{id}/{nextStatus}", name="id")
      */
-    public function move(ManagerRegistry $doctrine, $id): Response
+    public function move(ManagerRegistry $doctrine, $id, $nextStatus): Response
     {
         $entityManager = $doctrine->getManager();
         $repositorio = $doctrine->getRepository(Bug::class);
         $bugMover = $repositorio->find($id);
+
         if ($bugMover) {            
             $rep = $doctrine->getRepository(Status::class);
-            $status = $rep->find(3);
+            $status = $rep->find($nextStatus);
             $bugMover->setStatus($status);
     
             $entityManager->persist($bugMover);
@@ -76,7 +73,7 @@ class PageController extends AbstractController
         $priority = $repositorio->find($priority);
 
         $rep = $doctrine->getRepository(Status::class);
-        $status = $rep->find(1);
+        $status = $rep->find(Status::SIN_ASIGNAR);
 
         $bug = new Bug();
         $bug->setDescription($description);
@@ -86,8 +83,8 @@ class PageController extends AbstractController
         
         $entityManager->persist($bug);
         try {
-            return $this->render('page/test.html.twig', ["bug" => $bug]);
             $entityManager->flush();
+            return $this->render('page/bug.html.twig', ["bug" => $bug]);
         } catch (\Exception $e) {
             return new Response($e->getMessage());
             //return $this->render('page/demo.html');

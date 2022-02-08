@@ -1,6 +1,6 @@
 :root {
     --main-bg-color: #efefef;
-    --icons-color: #767676;
+    --icons-color: #b8b8b8;
 }
 body {
     display: flex;
@@ -90,13 +90,13 @@ i:hover {
     width: 50%;
 }
 .baja {
-    background-color: #abffa0;
+    background-color: #63ff4f;
 }
 .media {
-    background-color: #f5ffa0;
+    background-color: #ebff38;
 }
 .alta {
-    background-color: #ffa0a0;
+    background-color: #ff8e8e;
 }
 
 .user-container{
@@ -185,4 +185,20 @@ select {
     padding: 1em;
     border: 1px solid black;
     border-radius: 4px;
+}
+.filter-container {
+    background-color: var(--main-bg-color);
+    z-index: 2;
+    height: 22em;
+    width: 6em;
+    left: 12em;
+    position: fixed;
+    border: 3px solid black;
+    border-radius: .5em;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;   
+    padding: 1em;
 }

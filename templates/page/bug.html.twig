@@ -7,13 +7,14 @@
                     <i class="fas fa-user-slash fa-2x move-right" data-bug-id="{{ bug.id }}" data-next-status="2"></i>
                 {% elseif  bug.status.id == 2 %}
                     <i class="fas fa-user fa-2x"></i>
-                    <i class="far fa-thumbs-up fa-3x move-right" data-bug-id="{{ bug.id }}" data-next-status="3"></i>
+                    <i class="fas fa-level-up-alt fa-2x move-right" data-bug-id="{{ bug.id }}" data-next-status="3"></i>
                 {% elseif  bug.status.id == 3 %}
-                    <i class="far fa-arrow-alt-circle-left fa-2x move-left" data-bug-id="{{ bug.id }}" data-prev-status="2"></i>
+                    <i class="fas fa-level-down-alt fa-flip-horizontal fa-2x move-left" data-bug-id="{{ bug.id }}" data-prev-status="2"></i>
                     <i class="fas fa-user fa-2x"></i>
-                    <i class="far fa-thumbs-up fa-3x move-right" data-bug-id="{{ bug.id }}" data-next-status="4"></i>
+                    <i class="fas fa-level-up-alt fa-2x move-right" data-bug-id="{{ bug.id }}" data-next-status="4"></i>
                 {% else %}
-                    <i class="far fa-arrow-alt-circle-left fa-2x move-left" data-bug-id="{{ bug.id }}" data-prev-status="2"></i>
+                    <i class="fas fa-level-down-alt fa-flip-horizontal fa-2x move-left" data-bug-id="{{ bug.id }}" data-prev-status="2"></i>
+                    
                     <i class="fas fa-check-circle fa-2x"></i>
                 {% endif %}
             </div>

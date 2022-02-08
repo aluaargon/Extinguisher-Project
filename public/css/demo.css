@@ -23,6 +23,10 @@ body {
 }
 i {
     cursor: pointer;
+    color: var(--icons-color);
+}
+i:hover {
+    color: black;
 }
 .container {
     width:90%;
@@ -69,7 +73,6 @@ i {
     background-color: white;
     padding: .5em;
     width: 90%;
-    height: 139px;   
     margin: 1em 0;
 }
 .bug-footer {
@@ -82,17 +85,20 @@ i {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffa0a0;
     border-radius: .3em;
     padding: .2em;
     width: 50%;
 }
-i {
-    color: var(--icons-color);
+.baja {
+    background-color: #abffa0;
 }
-fa-thumbs-up {
-    color: black;
+.media {
+    background-color: #f5ffa0;
 }
+.alta {
+    background-color: #ffa0a0;
+}
+
 .user-container{
     background-color: var(--main-bg-color);
     z-index: 2;
@@ -180,7 +186,3 @@ select {
     border: 1px solid black;
     border-radius: 4px;
 }
-.active {
-    color: black;
-}
-

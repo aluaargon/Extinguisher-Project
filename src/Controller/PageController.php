@@ -91,5 +91,41 @@ class PageController extends AbstractController
         }
 
     }
+
+    /**
+     * @Route("/filter/priority", name="filter_priority")
+     */
+    public function filterByPriority(ManagerRegistry $doctrine): Response
+    {
+        $repositorio = $doctrine->getRepository(Bug::class);
+        $bugsSinAsignar = $repositorio->findBy(["status" => "1"], ['priority' => 'DESC']);
+
+        $bugsEnProceso = $repositorio->findBy(["status" => "2"], ['priority' => 'DESC']);
+
+        $bugsEnPruebas = $repositorio->findBy(["status" => "3"], ['priority' => 'DESC']);
+
+        $bugsAcabados = $repositorio->findBy(["status" => "4"], ['priority' => 'DESC']);
+
+        return $this->render('page/demo.html.twig', ["bugsSinAsignar" => $bugsSinAsignar, "bugsEnProceso" => $bugsEnProceso, "bugsEnPruebas" => $bugsEnPruebas, "bugsAcabados" => $bugsAcabados]);
+    }
+
+    /**
+     * @Route("/filter/date", name="filter_date")
+     */
+    public function filterByDate(ManagerRegistry $doctrine): Response
+    {
+        $repositorio = $doctrine->getRepository(Bug::class);
+        $bugsSinAsignar = $repositorio->findBy(["status" => "1"], ['date' => 'DESC']);
+
+        $bugsEnProceso = $repositorio->findBy(["status" => "2"], ['date' => 'DESC']);
+
+        $bugsEnPruebas = $repositorio->findBy(["status" => "3"], ['date' => 'DESC']);
+
+        $bugsAcabados = $repositorio->findBy(["status" => "4"], ['date' => 'DESC']);
+
+        return $this->render('page/demo.html.twig', ["bugsSinAsignar" => $bugsSinAsignar, "bugsEnProceso" => $bugsEnProceso, "bugsEnPruebas" => $bugsEnPruebas, "bugsAcabados" => $bugsAcabados]);
+    }
+
+
 }
 

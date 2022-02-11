@@ -112,7 +112,8 @@ i:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    justify-content: center;
+    gap: .3em;
 }
 .user-info {
     background-color: white;
@@ -124,6 +125,21 @@ i:hover {
     padding: .5em;
     border: 1px solid black;
     border-radius: .5em;
+}
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+}
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    margin: auto;
 }
 .info-container {
     background-color: var(--main-bg-color);

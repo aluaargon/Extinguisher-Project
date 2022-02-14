@@ -6,15 +6,15 @@
                 {% if bug.status.id == 1 %}
                     <i class="fas fa-user-slash fa-2x assign" data-bug-id="{{ bug.id }}" data-user-id="{% if app.user %} {{ app.user.id }} {% else %} 0 {% endif %}"></i>
                 {% elseif  bug.status.id == 2 %}
-                    <i class="fas fa-user fa-2x"></i>
+                    <i class="fas fa-user fa-2x info-user" data-bug-id="{{ bug.id }}"></i>
                     <i class="fas fa-level-up-alt fa-2x move-right" data-bug-id="{{ bug.id }}" data-next-status="3"></i>
                 {% elseif  bug.status.id == 3 %}
                     <i class="fas fa-level-down-alt fa-flip-horizontal fa-2x move-left" data-bug-id="{{ bug.id }}" data-prev-status="2"></i>
-                    <i class="fas fa-user fa-2x"></i>
+                    <i class="fas fa-user fa-2x info-user" data-bug-id="{{ bug.id }}"></i>
                     <i class="fas fa-level-up-alt fa-2x move-right" data-bug-id="{{ bug.id }}" data-next-status="4"></i>
                 {% else %}
                     <i class="fas fa-level-down-alt fa-flip-horizontal fa-2x move-left" data-bug-id="{{ bug.id }}" data-prev-status="2"></i>
-                    
+                    <i class="fas fa-user fa-2x info-user" data-bug-id="{{ bug.id }}"></i>
                     <i class="fas fa-check-circle fa-2x"></i>
                 {% endif %}
             </div>

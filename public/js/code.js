@@ -37,5 +37,15 @@ $(document).ready(function () {
     $("#exit-filter").on("click", function() {
         $(".filter-container").css({visibility : "hidden"}); 
     });
+    $(".info-user").on("click", function() {
+        let id = parseInt($(this).attr("data-bug-id"));
+        $.ajax({
+            type: "GET",
+            url : "/user-info/" + id
+        }).done((response) => {
+            alert("El usuario de este bug es: " + response)
+            location.reload()
+        }).fail((request) => alert("something went wrong " + request.status));
+    })
 });
 

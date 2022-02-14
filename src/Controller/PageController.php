@@ -76,7 +76,28 @@ class PageController extends AbstractController
             }
         }
     }
+    /**
+     * @Route("/user-info/{id}", name="user_info")
+     */
+    public function userInfo(ManagerRegistry $doctrine, $id): Response
+    {
+        $repositorio = $doctrine->getRepository(Bug::class);
+        $bugUser = $repositorio->find($id);
+        
+        $user = $bugUser->getUser();
+        if ($user == null) {
+            $userName = "none";
+        } else {
+            $userName = $user->getUsername();
+        }
 
+
+        try {
+            return new Response($userName);
+        } catch (\Exception $e) {
+            return new Response($e->getMessage());
+        }
+    }
 
     /**
      * @Route("/move/{id}/{nextStatus}", name="move_bug")

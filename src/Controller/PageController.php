@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Priority;
 use App\Entity\Status;
+use App\Entity\User;
 
 class PageController extends AbstractController
 {
@@ -46,7 +47,39 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/move/{id}/{nextStatus}", name="id")
+     * @Route("/assign/{id}/{idUser}", name="aassign_bug")
+     */
+    public function assign(ManagerRegistry $doctrine, $id, $idUser): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $repositorio = $doctrine->getRepository(Bug::class);
+        $bugAssign = $repositorio->find($id);
+        
+        if ($bugAssign) {               
+            if ($idUser != 0) {            
+                $rep = $doctrine->getRepository(User::class);
+                $user = $rep->find($idUser);
+                $bugAssign->setUser($user);
+            }else {
+                $idUser = null;
+            }
+            $rep = $doctrine->getRepository(Status::class);
+            $status = $rep->find(Status::EN_PRUEBAS);
+            $bugAssign->setStatus($status);
+
+            $entityManager->persist($bugAssign);
+            try {
+                $entityManager->flush();       
+                return new Response("Bug asignado");
+            } catch (\Exception $e) {
+                return new Response($e->getMessage());
+            }
+        }
+    }
+
+
+    /**
+     * @Route("/move/{id}/{nextStatus}", name="move_bug")
      */
     public function move(ManagerRegistry $doctrine, $id, $nextStatus): Response
     {
@@ -68,12 +101,10 @@ class PageController extends AbstractController
                 return new Response($e->getMessage());
             }
         }
-
-    
     }
 
     /**
-     * @Route("/insert/{description}/{priority}", name="bug")
+     * @Route("/insert/{description}/{priority}", name="insert_bug")
      */
     public function insert(ManagerRegistry $doctrine, $description, $priority): Response
     {

@@ -4,7 +4,7 @@
             <p class="priority {% if bug.priority.id == 1 %} baja {% elseif  bug.priority.id == 2 %} media {% else %} alta {% endif %}">{{ bug.priority.level }}</p>
             <div class="icons">
                 {% if bug.status.id == 1 %}
-                    <i class="fas fa-user-slash fa-2x move-right" data-bug-id="{{ bug.id }}" data-next-status="2"></i>
+                    <i class="fas fa-user-slash fa-2x assign" data-bug-id="{{ bug.id }}" data-user-id="{% if app.user %} {{ app.user.id }} {% else %} 0 {% endif %}"></i>
                 {% elseif  bug.status.id == 2 %}
                     <i class="fas fa-user fa-2x"></i>
                     <i class="fas fa-level-up-alt fa-2x move-right" data-bug-id="{{ bug.id }}" data-next-status="3"></i>

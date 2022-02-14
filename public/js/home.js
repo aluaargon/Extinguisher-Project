@@ -5,7 +5,10 @@ $(document).ready(function () {
             url : "/login" 
         }).done((response) => {
            $(".user-container").html(response);
-        }) 
+           $("#get-back").on( "click", function() {
+            location.reload();
+            });
+        });
     });
 
     $("#register").click(function() {
@@ -14,7 +17,10 @@ $(document).ready(function () {
             url : "/register" 
         }).done((response) => {
            $(".user-container").html(response);
-        }) 
+           $("#get-back").on( "click", function() {
+            location.reload();
+            });
+        });
     });
 
     $("#log-out").click(function() {
@@ -23,4 +29,5 @@ $(document).ready(function () {
             url : "/logout" 
         }).done(() => location.reload())
     });
+   
 });

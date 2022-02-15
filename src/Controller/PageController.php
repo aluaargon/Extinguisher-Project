@@ -18,16 +18,7 @@ class PageController extends AbstractController
      */
     public function index(ManagerRegistry $doctrine): Response
     {
-        $repositorio = $doctrine->getRepository(Bug::class);
-        $bugsSinAsignar = $repositorio->findBy(["status" => "1"]);
-
-        $bugsEnProceso = $repositorio->findBy(["status" => "2"]);
-
-        $bugsEnPruebas = $repositorio->findBy(["status" => "3"]);
-
-        $bugsAcabados = $repositorio->findBy(["status" => "4"]);
-
-        return $this->render('page/demo.html.twig', ["bugsSinAsignar" => $bugsSinAsignar, "bugsEnProceso" => $bugsEnProceso, "bugsEnPruebas" => $bugsEnPruebas, "bugsAcabados" => $bugsAcabados]);
+        return $this->render('page/index.html');
     }
      /**
      * @Route("/demo", name="demo")

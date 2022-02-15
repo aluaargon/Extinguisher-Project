@@ -44,7 +44,6 @@ $(document).ready(function () {
             url : "/user-info/" + id
         }).done((response) => {
             alert("El usuario de este bug es: " + response)
-            location.reload()
         }).fail((request) => alert("something went wrong " + request.status));
     })
 });

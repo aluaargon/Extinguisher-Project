@@ -17,6 +17,7 @@ $(document).ready(function () {
             url : "/register" 
         }).done((response) => {
            $(".user-container").html(response);
+           $("[name='registration_form']").prop("action", "/register")
            $("#get-back").on( "click", function() {
             location.reload();
             });

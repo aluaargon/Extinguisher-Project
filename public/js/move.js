@@ -6,7 +6,7 @@ $(document).ready(function () {
             type: "GET",
             url : "/assign/" + id + "/" + user
         }).done((response) => {
-            alert(response)
+            // alert(response)
             location.reload()
         }).fail((request) => alert("something went wrong " + request.status));
     });
@@ -17,7 +17,7 @@ $(document).ready(function () {
             type: "GET",
             url : "/move/" + id + "/" + nextStatus
         }).done((response) => {
-            alert(response)
+            // alert(response)
             location.reload()
         }).fail((request) => alert("something went wrong " + request.status));
     });
@@ -29,7 +29,7 @@ $(document).ready(function () {
             type: "GET",
             url : "/move/" + id + "/" + prevStatus
         }).done((response) => {
-            alert(response)
+            // alert(response)
             location.reload()
         }).fail((request) => alert("something went wrong " + request.status));
     });

@@ -1,5 +1,5 @@
 $(document).ready(function () {  
-    $("form").on("submit", (e) => {
+    $("#add-form").on("submit", (e) => {
         e.preventDefault();
         $("form")[0].reset();
         $(".add-container").css({visibility : "hidden"});

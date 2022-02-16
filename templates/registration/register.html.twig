@@ -2,13 +2,16 @@
 
 {% block body %}
         <h1>Register</h1>
-        <form name="registration_form" method="post" action="/register" class="login">
-            <div><label for="registration_form_username" class="required">Username</label><input type="text" id="registration_form_username" name="registration_form[username]" required="required" maxlength="180" /></div>
-            <div><label for="registration_form_plainPassword" class="required">Password</label><input type="password" id="registration_form_plainPassword" name="registration_form[plainPassword]" required="required" autocomplete="new-password" /></div>
-            <div><label for="registration_form_agreeTerms" class="required">Agree terms</label><input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1" /></div>
 
-            <button type="submit" class="btn">Register</button>
-        <input type="hidden" id="registration_form__token" name="registration_form[_token]" value="08d2d37ca7d.SmqQ6duZm0QagEuHxGy1vMQ6wAz-tJeSz8sv-Lg88HM.OEf3roTrrjVO-iPCsDzmiK8LrVSc_db6qb96jO1ExSAZOfPYrsjpJn7uGg" /></form>
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
         <i class="fas fa-person-running fa-3x" id="get-back"></i><br>
 
 {% endblock %}

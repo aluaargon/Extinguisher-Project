@@ -42,15 +42,16 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
       
-      <h1 class="logo me-auto"><img src="/assets/img/logo.png" alt="logo"></h1>
+      <h1 class="logo me-auto"><a href="/"><img src="/assets/img/logo.png" alt="logo"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto active" href="/">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#about">Sobre el producto</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+          <li><a class="nav-link" id="avisoLegal" href="#">Aviso legal</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -163,20 +164,32 @@
             </div>
     
             <div class="row">
-              <div class="col-xl-6 col-md-6 d-flex " data-aos="zoom-in" data-aos-delay="100">
+              <div class="col-xl-6 " data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
                   <div class="icon"> <i class="fas fa-user"></i></div>
                   <h4><a href="">Sonido de fondo</a></h4>
-                  <p>Gestión de usuarios. Registrate e incia sesión dentro de la aplicación rapidamente</p>
+                  <br>
+                  <br>
+                  <br>
+                  <p>Escuchar sonidos relajantes mientras navegas</p>
+                  <br>
+                  <br>
+                  <br>
+                  <audio controls>
+                    <source src="/assets/media/audio.mp3" type="audio/mp3">
+                  Your browser does not support the audio element.
+                  </audio> 
                 </div>
               </div>
     
-              <div class="col-xl-6 col-md-6 d-flex " data-aos="zoom-in" data-aos-delay="200">
+              <div class="col-xl-6" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon-box">
                   <div class="icon"><i class="fa fa-exclamation"></i></div>
                   <h4><a href="">Video</a></h4>
-                  <p>Prioridades marcadas con colores, Rojo, amarillo, verde, según la prioridad sea alta, media o baja</p>
-                </div>
+                  <video width="320" height="240" controls>
+                    <source src="/assets/media/video.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>                 </div>
               </div>
     
             </div>
@@ -316,11 +329,11 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Links útiles</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#hero">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#about">Sobre el producto</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://www.elabogadodigital.com/aviso-legal-terminos-de-uso-y-politica-de-privacidad/">Aviso Legal</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a id="avisoLegal" href="#">Aviso Legal</a></li>
             </ul>
           </div>
 
@@ -365,6 +378,7 @@
   <script src="/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
+  <script src="/js/avisoLegal.js"></script>
   <script src="/assets/js/main.js"></script>
 
 </body>

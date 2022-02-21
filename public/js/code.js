@@ -1,4 +1,5 @@
 $(document).ready(function () {  
+    // Este script hace que las ventanas de la barra de navegación aparezcan y desaparezcan
     $("#user").on("click", () => {
         $(".user-container").css({visibility : "visible"});
         $(".info-container").css({visibility : "hidden"}); 
@@ -37,11 +38,13 @@ $(document).ready(function () {
     $("#exit-filter").on("click", function() {
         $(".filter-container").css({visibility : "hidden"}); 
     });
+    // En esta parte nos le pide los datos de un usuario concreto al php
     $(".info-user").on("click", function() {
-        let id = parseInt($(this).attr("data-bug-id"));
+        // Aquí cojemos de un atributo de html que he creado yo el id del bug 
+        let id = parseInt($(this).attr("data-bug-id")); 
         $.ajax({
             type: "GET",
-            url : "/user-info/" + id
+            url : "/user-info/" + id // Aquí le solicito al servidor que me de los datos del usuario que le paso
         }).done((response) => {
             alert("El usuario de este bug es: " + response)
         }).fail((request) => alert("something went wrong " + request.status));

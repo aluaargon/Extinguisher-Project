@@ -1,4 +1,6 @@
 $(document).ready(function () {  
+    // En este script mediante ajax le pido a symfony que me haga el 
+    // login, el logout o el registro dependiendo de lo que quiera el usuario
     $("#log-in").click(function() {
         $.ajax({
             type: "GET", 

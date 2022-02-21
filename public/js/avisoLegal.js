@@ -1,7 +1,7 @@
 window.onload = function() {
    
     var XMLHttpRequestObject =  new XMLHttpRequest();
-    
+    // Inserta en el html principal la página de aviso legal por ajax puro
     document.getElementById("avisoLegal").addEventListener("click", function(e) {
         e.preventDefault();
         if(XMLHttpRequestObject) {
